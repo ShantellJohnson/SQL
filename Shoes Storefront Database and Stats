@@ -29,10 +29,6 @@ SELECT * FROM shoes_storefront WHERE location is "san diego";
 -which items are shipped from Atlanta and have better customer ratings?
 SELECT * FROM shoes_storefront WHERE location is "Atlanta" GROUP BY rating
 
--which top 5 items have the best customer ratings and where are they shipping from?
-SELECT name, rating, location
-FROM shoes_storefront, 
-ORDER BY rating desc
-limit 5
+
 
 
