@@ -1,0 +1,38 @@
+CREATE TABLE shoes_storefront (id INTEGER PRIMARY KEY, name TEXT, rating INTEGER, price INTEGER, location TEXT);
+
+INSERT INTO shoes_storefront VALUES
+(1, "tall brown boots", 5, 26, "las vegas"),
+(2, "tall black boots", 5, 26, "las vegas"),
+(3, "tall white boots", 3, 23, "Atlanta"),
+(4, "ankle black boots", 5, 23, "Atlanta"),
+(5, "ankle white boots", 5, 23, "san francisco"),
+(6, "ankle brown boots", 4, 23, "las vegas"),
+(7, "black sandals", 5, 16, "san diego"),
+(8, "white sandals", 5, 16, "san diego"),
+(9, "yellow sandals", 2, 12, "Atlanta"),
+(10, "blue sandals", 2, 12, "san diego"),
+(11, "brown sandals", 5, 16, "san diego"),
+(12, "purple sandals", 2, 12, "san diego"),
+(13, "green sandals", 3, 13, "Atlanta"),
+(14, "orange sandals", 2, 12, "Atlanta"),
+(15, "red sandals", 4, 16, "san diego");
+
+-which items have customer ratings above 3? (best sellers)
+SELECT * FROM shoes_storefront WHERE rating > 3;
+
+-which items are most afforadable for consumers? 
+SELECT * FROM shoes_storefront WHERE price < 15;
+
+-which items ship from San Diego?
+SELECT * FROM shoes_storefront WHERE location is "san diego";
+
+-which items are shipped from Atlanta and have better customer ratings?
+SELECT * FROM shoes_storefront WHERE location is "Atlanta" GROUP BY rating
+
+-which top 5 items have the best customer ratings and where are they shipping from?
+SELECT name, rating, location
+FROM shoes_storefront, 
+ORDER BY rating desc
+limit 5
+
+
